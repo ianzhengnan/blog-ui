@@ -8,15 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
-    <title>第一篇博客</title>
-    <style media="screen">
-      .container {
-        max-width: 960px;
-      }
-    </style>
+    <title>分类 - 散文</title>
   </head>
   <body>
-
     <div class="blog-masthead">
       <nav class="navbar navbar-light bg-light justify-content-between">
         <div class="container">
@@ -30,58 +24,68 @@
       </nav>
     </div>
 
+    <!-- main area -->
+    <main class="container" role="main">
 
-
-    <div class="container blog-content">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Library</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Data</li>
+          <li class="breadcrumb-item"><a href="#">首页</a></li>
+          <li class="breadcrumb-item"><a href="#">分类</a></li>
+          <li class="breadcrumb-item active" aria-current="page">散文</li>
         </ol>
       </nav>
 
-      <div class="blog-post">
-        <h2 class="blog-post-title">第一篇博客</h2>
-        <p class="blog-post-meta">3月20日</p>
-        <p>这是我的第一个篇博客，它是关于如何作一个Fiori app</p>
+      <div class="row">
+        <div class="col-sm-8 archieves">
+          <div class="archieve-year">
+            <div class="archieve-year-header">
+              <h2>2017年</h2>
+            </div>
+            <div class="archieve-year-content">
+              <ul>
+                <li><a href="#">张江风景</a><span class="cmt-count">（12@2017.12.05）</span></li>
+                <li><a href="#">张江风景</a><span class="cmt-count">（12@2017.12.05）</span></li>
+                <li><a href="#">张江风景</a><span class="cmt-count">（12@2017.12.05）</span></li>
+                <li><a href="#">张江风景</a><span class="cmt-count">（12@2017.12.05）</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="archieve-year">
+            <div class="archieve-year-header">
+              <h2>2016年</h2>
+            </div>
+            <div class="archieve-year-content">
+              <ul>
+                <li><a href="#">张江风景</a><span class="cmt-count">（12@2017.12.05）</span></li>
+                <li><a href="#">张江风景</a><span class="cmt-count">（12@2017.12.05）</span></li>
+                <li><a href="#">张江风景</a><span class="cmt-count">（12@2017.12.05）</span></li>
+                <li><a href="#">张江风景</a><span class="cmt-count">（12@2017.12.05）</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side area -->
+        <aside class="col-sm-3 ml-sm-auto">
+          <div class="sidebar-module">
+            <h4>分类</h4>
+            <ol class="list-unstyled catalogs">
+              <li><a href="catalog.html">散文（100）</a></li>
+              <li><a href="#">感悟与观点（150）</a></li>
+              <li><a href="#">前端技术（200）</a></li>
+              <li><a href="#">后端技术（230）</a></li>
+            </ol>
+          </div>
+        </aside>
       </div>
 
-      <div class="comments">
-        <h2>留言（2条）</h2>
-        <hr>
-        <div class="comment">
-            <p class="comment-header">郑楠说：</p>
-            <div class="comment-content">
-              这是我第一条评论
-            </div>
-            <div class="comment-footer text-right">
-              2017年12月11日 11:28
-              |
-              <a href="#">引用</a>
-              |
-              <a class="anchorjs-link " href="#text-transform" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;">#</a>
-            </div>
-            <hr class="comment-line">
-        </div>
-        <div class="comment">
-            <p class="comment-header">郑楠说：</p>
-            <div class="comment-content">
-              这是我第二条评论
-            </div>
-            <div class="comment-footer text-right">
-              2017年12月11日 11:28
-              |
-              <a href="#">引用</a>
-              |
-              <a class="anchorjs-link " href="#text-transform" aria-label="Anchor" data-anchorjs-icon="#" style="padding-left: 0.375em;">#</a>
-            </div>
-            <hr class="comment-line">
-        </div>
-      </div>
 
-    </div>
 
+
+    </main>
+
+
+    <!-- footer -->
     <footer class="blog-footer">
       <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
       <p>

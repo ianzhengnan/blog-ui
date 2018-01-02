@@ -61,3 +61,47 @@
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+.catalogs li{
+  margin: 3px 0 3px 0;
+}
+
+/* comments */
+.comment-header {
+  font-weight: 700;
+}
+.comment-content{
+  margin: 10px;
+}
+.comment-footer {
+  /* text-align: right; */
+  margin-right: 50px;
+  color: #999;
+}
+.comment-line {
+  border-top:1px dotted #185598;
+  margin-top: 0.5rem;
+}
+
+
+
+/* archieve */
+.archieve-year {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.archieve-year-header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+.archieve-year-content {
+
+}
+
+.archieve-year-content li {
+  text-align: left;
+  margin: 3px 0 3px 0;
+}
+.cmt-count {
+  color: #999;
+}
