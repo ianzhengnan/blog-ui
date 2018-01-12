@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "express": "^4.16.2",
+    "marked": "^0.3.12",
     "next": "^4.2.2",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-highlight": "briancappello/react-highlight#react-v16-compiled"
   }
 }

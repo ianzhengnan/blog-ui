@@ -1,18 +1,18 @@
 
 const Comment = (props) => (
-  <div class="comment">
-      <p class="comment-header">{props.user}说：</p>
-      <div class="comment-content">
+  <div className="comment">
+      <p className="comment-header">{props.user}说：</p>
+      <div className="comment-content">
         {props.content}
       </div>
-      <div class="comment-footer text-right">
+      <div className="comment-footer text-right">
         {props.datetime}
         |
         <a href="#">引用</a>
         |
-        <a class="anchorjs-link " href="#text-transform" aria-label="Anchor" data-anchorjs-icon="#">#</a>
+        <a className="anchorjs-link " href="#text-transform" aria-label="Anchor" data-anchorjs-icon="#">#</a>
       </div>
-      <hr class="comment-line" />
+      <hr className="comment-line" />
   </div>
 )
 
