@@ -1,0 +1,13 @@
+{
+  "name": "blog-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ianzhengnan/blog-ui.git",
+  "author": "Ian Zheng",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^4.2.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
