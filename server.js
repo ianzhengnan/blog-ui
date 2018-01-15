@@ -9,6 +9,11 @@ app.prepare()
 .then(() => {
   const server = express()
 
+  server.get('/p/:year/:id.html', (req, res) => {
+    const actualPage = '/detail'
+    app.render(req, res, actualPage, req.params)
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })
