@@ -9,7 +9,7 @@ const PostBlog = (props) => (
       </Link>
     </h2>
     <p className="blog-post-meta">{props.blog.creatAt}</p>
-    <p>{props.blog.content}</p>
+    <p>{props.blog.summary}</p>
   </div>
 )
 

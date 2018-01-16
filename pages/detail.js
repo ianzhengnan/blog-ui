@@ -26,7 +26,7 @@ const Detail = (props) => (
 
 Detail.getInitialProps = async function (context) {
   const { id } = context.query
-  const res = await fetch(`http://192.168.48.1:8080/blogs/${id}`)
+  const res = await fetch(`http://localhost:8080/blogs/${id}`)
   const blog = await res.json()
 
   console.log(`Fetched blog: ${blog.title}`);
