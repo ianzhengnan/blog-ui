@@ -10,8 +10,7 @@ const Index = (props) => (
       <div className="row">
         <div className="col-sm-8 blog-main">
           {props.blogs.map((blog) => (
-            <PostBlog id={blog.id} year={blog.year} title={blog.title}
-              content={blog.content} createAt={blog.createAt} />
+            <PostBlog key={blog.id} blog={blog} />
           ))}
         </div>
         <aside className="col-sm-3 ml-sm-auto blog-sidebar">

@@ -14,7 +14,7 @@ marked.setOptions({
 class PostContent extends React.Component {
 
   renderMarkdown() {
-    if (/~~~/.test(this.props.content)) {
+    if (/```/.test(this.props.content)) {
       return (
         <div>
           <Highlight innerHTML>
