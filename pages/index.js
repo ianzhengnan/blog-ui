@@ -23,7 +23,7 @@ const Index = (props) => (
 )
 
 Index.getInitialProps = async function () {
-  const res = await fetch('http://localhost:8080/blogs')
+  const res = await fetch('http://192.168.48.1:8080/blogs')
   const data = await res.json()
 
   console.log(`Show data fetched. Count: ${data.content.length}`);
