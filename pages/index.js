@@ -3,6 +3,7 @@ import PostBlog from '../components/PostBlog'
 import Catalogs from '../components/Catalogs'
 import Card from '../components/Card'
 import fetch from 'isomorphic-unfetch'
+import pkg from '../package.json'
 
 const Index = (props) => (
   <Layout title="首页">
@@ -23,7 +24,7 @@ const Index = (props) => (
 )
 
 Index.getInitialProps = async function () {
-  const res = await fetch('http://192.168.48.1:8080/blogs')
+  const res = await fetch(`${pkg.backendurl}/blogs`)
   const data = await res.json()
 
   console.log(`Show data fetched. Count: ${data.content.length}`);

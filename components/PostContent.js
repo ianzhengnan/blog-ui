@@ -8,17 +8,21 @@ const Highlight = dynamic(import('react-highlight'))
 marked.setOptions({
   gfm: true,
   tables: true,
-  breaks: true
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false
 })
 
 class PostContent extends React.Component {
 
   renderMarkdown() {
-    if (/```/.test(this.props.content)) {
+    if (/```/.test(this.props.md)) {
       return (
         <div>
           <Highlight innerHTML>
-            {marked(this.props.content)}
+            {marked(this.props.md)}
           </Highlight>
         </div>
       )
@@ -26,7 +30,7 @@ class PostContent extends React.Component {
 
     return (
       <div
-        dangerouslySetInnerHTML={{__html: marked(this.props.content)}}
+        dangerouslySetInnerHTML={{__html: marked(this.props.md)}}
       />
     )
   }
