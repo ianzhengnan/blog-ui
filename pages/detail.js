@@ -17,7 +17,7 @@ const Detail = (props) => (
       <Breadcrumb />
 
       <PostContent title={props.blog.title} datetime={props.blog.datetime}
-        content={props.blog.content} md={props.markdownfile}/>
+        content={props.markdownfile}/>
 
       <Comments count="2"/>
 

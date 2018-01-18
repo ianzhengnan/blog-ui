@@ -18,11 +18,11 @@ marked.setOptions({
 class PostContent extends React.Component {
 
   renderMarkdown() {
-    if (/```/.test(this.props.md)) {
+    if (/```/.test(this.props.content)) {
       return (
         <div>
           <Highlight innerHTML>
-            {marked(this.props.md)}
+            {marked(this.props.content)}
           </Highlight>
         </div>
       )
@@ -30,7 +30,7 @@ class PostContent extends React.Component {
 
     return (
       <div
-        dangerouslySetInnerHTML={{__html: marked(this.props.md)}}
+        dangerouslySetInnerHTML={{__html: marked(this.props.content)}}
       />
     )
   }
