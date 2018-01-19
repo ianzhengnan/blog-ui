@@ -8,19 +8,23 @@ class Comments extends React.Component {
   constructor(props){
     super(props)
     this.state = { cmts: [] }
-
+    this.onCommentUpdate = this.onCommentUpdate.bind(this)
   }
 
   componentDidMount(){
+    this.fetchData()
+  }
+
+  onCommentUpdate(){
+    this.fetchData()
+  }
+
+  fetchData(){
     fetch(`${pkg.backendurl}/comments/${this.props.blogId}`)
       .then(r => r.json())
       .then(data => {
         this.setState({ cmts: data })
       })
-  }
-
-  onUpdate(data){
-    this.setState({ data })
   }
 
   render(){
@@ -33,7 +37,7 @@ class Comments extends React.Component {
         {cmts.map((cmt) => (
           <Comment key={cmt.id} cmt={cmt} />
         ))}
-        <InputComment />
+        <InputComment onCommentUpdate={this.onCommentUpdate}/>
       </div>
     )
   }

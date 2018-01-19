@@ -13,6 +13,7 @@ class InputComment extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.onCommentUpdate = this.onCommentUpdate.bind(this)
   }
 
   handleSubmit(e){
@@ -32,10 +33,18 @@ class InputComment extends React.Component {
         })
       }).then( r => {
         return r.json()
+      }).then( data => {
+        this.onCommentUpdate()
+        this.setState({
+          content: "",
+          email: "",
+          username: ""
+        })
       })
+  }
 
-    console.log(`result is ${result}`);
-
+  onCommentUpdate (){
+    this.props.onCommentUpdate()
   }
 
   handleChange(e){
