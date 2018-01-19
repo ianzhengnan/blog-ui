@@ -1,4 +1,5 @@
 import React from 'react'
+import Router from 'next/router'
 import fetch from 'isomorphic-unfetch'
 import pkg from '../package.json'
 
@@ -17,15 +18,39 @@ class InputComment extends React.Component {
   handleSubmit(e){
     e.preventDefault()
     console.log('The button is clicked.')
-    console.log(`The state is ${this.state}`);
+    // send post request to create comment
+    const result = fetch(`${pkg.backendurl}/comments/add`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        blogId: `${Router.query.id}`,
+        username: this.state.username,
+        email: this.state.email,
+        content: this.state.content
+        })
+      }).then( r => {
+        return r.json()
+      })
+
+    console.log(`result is ${result}`);
+
   }
 
   handleChange(e){
-    this.setState({
-      content: e.target.value,
-      username: e.target.value,
-      email: e.target.value
-    })
+    switch (e.target.name) {
+      case 'content':
+        this.setState({content: e.target.value})
+        break;
+      case 'username':
+        this.setState({username: e.target.value})
+        break;
+      case 'email':
+        this.setState({email: e.target.value})
+        break;
+      default:
+    }
   }
 
   render() {
@@ -36,16 +61,22 @@ class InputComment extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="exampleFormControlTextarea1">您的留言：</label>
-            <textarea className="form-control" id="exampleFormControlTextarea1" rows="5"
-              placeholder="Enter content" value={this.state.content} onChange={this.handleChange}></textarea>
+            <textarea name="content" className="form-control"
+              id="exampleFormControlTextarea1" rows="5"
+              placeholder="Enter content" value={this.state.content}
+              onChange={this.handleChange}></textarea>
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">您的姓名：</label>
-            <input type="text" value={this.state.username} onChange={this.handleChange} className="form-control" placeholder="Enter name" />
+            <input type="text" name="username" value={this.state.username}
+              onChange={this.handleChange} className="form-control"
+              placeholder="Enter name" />
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputEmail1">邮箱地址：</label>
-            <input type="email" value={this.state.email} onChange={this.handleChange} className="form-control" aria-describedby="emailHelp" placeholder="Enter email" />
+            <input type="email" name="email" value={this.state.email}
+              onChange={this.handleChange} className="form-control"
+              aria-describedby="emailHelp" placeholder="Enter email" />
             <small id="emailHelp" className="form-text text-muted">不公开</small>
           </div>
           <div className="form-check">
