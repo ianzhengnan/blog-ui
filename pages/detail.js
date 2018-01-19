@@ -19,7 +19,7 @@ const Detail = (props) => (
       <PostContent title={props.blog.title} datetime={props.blog.datetime}
         content={props.markdownfile}/>
 
-      <Comments count="2"/>
+      <Comments count="2" blogId={props.blog.id} />
 
     </div>
   </Layout>

@@ -1,12 +1,12 @@
 
 const Comment = (props) => (
   <div className="comment">
-      <p className="comment-header">{props.user}说：</p>
+      <p className="comment-header">{props.cmt.username}说：</p>
       <div className="comment-content">
-        {props.content}
+        {props.cmt.content}
       </div>
       <div className="comment-footer text-right">
-        {props.datetime}
+        {props.cmt.createAt}
         |
         <a href="#">引用</a>
         |

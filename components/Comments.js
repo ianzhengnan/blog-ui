@@ -1,14 +1,43 @@
+import React from 'react'
 import Comment from './Comment'
 import InputComment from './InputComment'
+import fetch from 'isomorphic-unfetch'
+import pkg from '../package.json'
 
-const Comments = (props) => (
-  <div className="comments">
-    <h2>留言（{props.count}条）</h2>
-    <hr />
-    <Comment user="Ian Zheng" content="分析地透彻" datetime="2017年12月11日 11:28"/>
-    <Comment user="郑楠" content="写得好" datetime="2017年12月10日 11:28"/>
-    <InputComment />
-  </div>
-)
+class Comments extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = { cmts: [] }
+
+  }
+
+  componentDidMount(){
+    fetch(`${pkg.backendurl}/comments/${this.props.blogId}`)
+      .then(r => r.json())
+      .then(data => {
+        this.setState({ cmts: data })
+      })
+  }
+
+  onUpdate(data){
+    this.setState({ data })
+  }
+
+  render(){
+    const { cmts } = this.state;
+
+    return (
+      <div className="comments">
+        <h2>留言（{cmts.length}条）</h2>
+        <hr />
+        {cmts.map((cmt) => (
+          <Comment key={cmt.id} cmt={cmt} />
+        ))}
+        <InputComment />
+      </div>
+    )
+  }
+}
+
 
 export default Comments
