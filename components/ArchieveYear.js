@@ -1,5 +1,12 @@
 import Link from 'next/link'
 
+const blog = {
+  title: 'test',
+  id: 'sfsdfsdfsfs',
+  month: 2,
+  year: 2017
+}
+
 const ArchieveYear = (props) => (
   <div className="archieve-year">
     <div className="archieve-year-header">
@@ -7,10 +14,21 @@ const ArchieveYear = (props) => (
     </div>
     <div className="archieve-year-content">
       <ul>
-        <li><a href="#">张江风景</a><span className="cmt-count">（12@2017.12.05）</span></li>
-        <li><a href="#">张江风景</a><span className="cmt-count">（12@2017.12.05）</span></li>
-        <li><a href="#">张江风景</a><span className="cmt-count">（12@2017.12.05）</span></li>
-        <li><a href="#">张江风景</a><span className="cmt-count">（12@2017.12.05）</span></li>
+        {
+          props.blogs.map((blog) => {
+            if (blog.year !== props.year) return
+            return (
+            <li key={blog.id}>
+              <Link href={`/detail?id=${blog.id}`}
+                as={`/p/${blog.year}/${blog.month}/${blog.id}.html`}>
+                <a href={`/detail?id=${blog.id}`}>{blog.title}</a>
+              </Link>
+              <span className="cmt-count">（12@2017.12.05）</span>
+            </li>
+
+            )
+          })
+        }
       </ul>
     </div>
   </div>
