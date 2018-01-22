@@ -24,10 +24,15 @@ const Index = (props) => (
 )
 
 Index.getInitialProps = async function () {
+  // fetch blogs
   const res = await fetch(`${pkg.backendurl}/blogs`)
   const data = await res.json()
+  // fetch catalogs
+  const response = await fetch(`${pkg.backendurl}/catalogs`)
+  const cats = await response.json()
 
   console.log(`Show data fetched. Count: ${data.content.length}`);
+
   return {
     blogs: data.content
   }

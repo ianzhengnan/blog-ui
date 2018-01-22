@@ -15,6 +15,12 @@ app.prepare()
     app.render(req, res, actualPage, req.params)
   })
 
+  server.get('/c/:id.html', (req, res) => {
+    const actualPage = '/catalog'
+    const queryParams = { id: req.params.id }
+    app.render(req, res, actualPage, req.params)
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })
