@@ -14,7 +14,7 @@ const Detail = (props) => (
         }
       `}</style>
 
-      <Breadcrumb />
+      <Breadcrumb cat={props.blog.catalog} />
 
       <PostContent title={props.blog.title} datetime={props.blog.datetime}
         content={props.markdownfile}/>

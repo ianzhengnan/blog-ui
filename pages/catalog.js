@@ -12,8 +12,12 @@ export default class extends React.Component {
       const res = await fetch(`${pkg.backendurl}/blogs?catalogId=${id}`)
       const data = await res.json()
 
+      const response = await fetch(`${pkg.backendurl}/catalogs/${id}`)
+      const catalog = await response.json()
+
       return {
-        blogs: data.content
+        blogs: data.content,
+        catalog: catalog
       }
     }
 
@@ -35,13 +39,15 @@ export default class extends React.Component {
         }
         blog.bs.push(blogs[i])
       }
-      result.push({year: blog.year, bs: blog.bs.slice(0)})
+      if (blog.bs && blog.bs.length > 0) {
+        result.push({year: blog.year, bs: blog.bs.slice(0)})
+      }
 
       return (
         <Layout title="类别">
           <main className="container" role="main">
 
-            <Breadcrumb />
+            <Breadcrumb cat={this.props.catalog}/>
             <div className="row">
               <div className="col-sm-8 archieves">
                 {

@@ -1,3 +1,4 @@
+import $ from 'jquery'
 
 const Comment = (props) => (
   <div className="comment">

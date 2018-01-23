@@ -21,6 +21,11 @@ app.prepare()
     app.render(req, res, actualPage, req.params)
   })
 
+  server.get('/about.html', (req, res) => {
+    const actualPage = '/about'
+    app.render(req, res, actualPage, req.params)
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })
