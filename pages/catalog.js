@@ -12,28 +12,31 @@ export default class extends React.Component {
       const res = await fetch(`${pkg.backendurl}/blogs?catalogId=${id}`)
       const data = await res.json()
 
-      const blogs = data.content
-      // if (data.content && data.content.length !== 0) {
-      //   const result = data.content.map((blog) => {
-      //     let rObj = {}
-      //     rObj['year'] = blog.year
-      //
-      //   })
-      // }
-
       return {
-        blogs
+        blogs: data.content
       }
     }
 
     constructor(props){
       super(props)
-      // this.state = {
-      //   blogs: []
-      // }
     }
 
     render(){
+      const blogs = this.props.blogs
+      let blog = { year: blogs[0].year, bs: [] }
+
+      let result = []
+      let i = 0
+      for ( ;i < blogs.length; i++) {
+        if (blogs[i].year !== blog.year) {
+          result.push({year: blog.year, bs: blog.bs.slice(0)})
+          blog.year = blogs[i].year
+          blog.bs.length = 0
+        }
+        blog.bs.push(blogs[i])
+      }
+      result.push({year: blog.year, bs: blog.bs.slice(0)})
+
       return (
         <Layout title="类别">
           <main className="container" role="main">
@@ -42,8 +45,8 @@ export default class extends React.Component {
             <div className="row">
               <div className="col-sm-8 archieves">
                 {
-                  this.props.blogs.map((blog) => (
-                    <ArchieveYear key={blog.year} year={blog.year} blogs={this.props.blogs}/>
+                  result.map((blog) => (
+                    <ArchieveYear key={blog.year} year={blog.year} blogs={blog.bs}/>
                 ))
               }
               </div>

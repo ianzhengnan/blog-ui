@@ -1,11 +1,5 @@
 import Link from 'next/link'
 
-const blog = {
-  title: 'test',
-  id: 'sfsdfsdfsfs',
-  month: 2,
-  year: 2017
-}
 
 const ArchieveYear = (props) => (
   <div className="archieve-year">
