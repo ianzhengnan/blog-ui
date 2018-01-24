@@ -8,7 +8,7 @@ const PostBlog = (props) => (
         <a>{props.blog.title}</a>
       </Link>
     </h2>
-    <p className="blog-post-meta">{props.blog.creatAt}</p>
+    <p className="blog-post-meta">{props.blog.createAt}</p>
     <p>{props.blog.summary}</p>
   </div>
 )
