@@ -20,11 +20,27 @@ export default class extends React.Component {
     }
   }
 
+  
   constructor(props){
     super(props)
+    // this.state = { blogs: {} }
   }
+  
+  // componentDidMount(){
+  //   this.fetchData()
+  // }
+
+  // fetchData(){
+  //   // fetch data
+  //   fetch(`${pkg.backendurl}/blogs`)
+  //     .then( r => r.json())
+  //     .then( data => {
+  //       this.setState({ blogs: data })
+  //     })
+  // }
 
   render(){
+    
     return (
       <Layout title="首页">
         <main className="container" role="main">
