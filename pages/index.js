@@ -7,21 +7,6 @@ import fetch from 'isomorphic-unfetch'
 import pkg from '../package.json'
 
 export default class extends React.Component {
-  // static async getInitialProps () {
-  //   // fetch blogs
-  //   const res = await fetch(`${pkg.backendurl}/blogs`)
-  //   const data = await res.json()
-
-  //   console.log(`Show data fetched. Count: ${data.content.length}`);
-
-  //   return {
-  //     blogs: data
-  //   }
-  // }
-
-  constructor(props){
-    super(props)
-  }
   
   render(){
     return (
