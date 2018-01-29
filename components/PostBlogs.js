@@ -40,6 +40,7 @@ class PostBlogs extends React.Component{
       if (data && data.content.length > 0) {
         this.setState({ blogs: this.state.blogs.concat(data.content), page: page})
       }else {
+        // prevent user scroll down many times
         this.setState({ isEnd: true })
         window.removeEventListener('scroll', this.handleScroll)
         setTimeout(() => {
