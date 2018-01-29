@@ -5,7 +5,7 @@
   "repository": "https://github.com/ianzhengnan/blog-ui.git",
   "author": "Ian Zheng",
   "license": "MIT",
-  "backendurl": "http://localhost:8080",
+  "backendurl": "http://192.168.48.1:8080",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
