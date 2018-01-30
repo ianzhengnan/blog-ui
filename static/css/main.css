@@ -105,3 +105,14 @@
 .cmt-count {
   color: #999;
 }
+
+
+/* loading images */
+.loading {
+  margin: 20px auto;
+}
+
+/* quote comment styles */
+.comment-content div {
+  
+}
