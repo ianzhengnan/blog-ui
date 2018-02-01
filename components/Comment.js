@@ -10,7 +10,7 @@ class Comment extends React.Component {
   handleQuote(e){
     e.preventDefault()
     console.log('quote is clicked.');
-    
+    console.log(`the name of comment is ${this.props.cmt.username}`);
   }
 
   render(){

@@ -14,6 +14,7 @@ class InputComment extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.onCommentUpdate = this.onCommentUpdate.bind(this)
+    this.handleReply = this.handleReply.bind(this)
   }
 
   handleSubmit(e){
@@ -62,18 +63,22 @@ class InputComment extends React.Component {
     }
   }
 
+  handleReply(){
+
+  }
+
   render() {
     return (
       <div>
         <h2>请留言：</h2>
         <hr/>
-        <form onSubmit={this.handleSubmit}>
+        <form id="comment-form" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="exampleFormControlTextarea1">您的留言：</label>
             <textarea name="content" className="form-control"
               id="exampleFormControlTextarea1" rows="5"
               placeholder="Enter content" value={this.state.content}
-              onChange={this.handleChange}></textarea>
+              onChange={this.handleChange} onFocus={this.handleReply}></textarea>
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">您的姓名：</label>
