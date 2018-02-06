@@ -30,7 +30,7 @@ class Comment extends React.Component {
           dangerouslySetInnerHTML={{__html: this.props.cmt.content}}
         />
         <div className="comment-footer text-right">
-          {this.props.cmt.createAt}
+          {(new Date(this.props.cmt.createAt)).toLocaleString()}
           |
           <a href="" onClick={this.handleQuote}>引用</a>
           |

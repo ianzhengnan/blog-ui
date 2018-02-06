@@ -8,7 +8,7 @@ const PostBlog = (props) => (
         <a>{props.blog.title}</a>
       </Link>
     </h2>
-    <p className="blog-post-meta">{props.blog.createAt}</p>
+    <p className="blog-post-meta">{(new Date(props.blog.createAt)).toLocaleString()}</p>
     <p>{props.blog.summary}</p>
   </div>
 )
