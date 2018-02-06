@@ -20,11 +20,11 @@ class Comment extends React.Component {
     return (
       <div className="comment" id={`comment-${this.props.cmt.id}`}>
         <p className="comment-header">{this.props.cmt.username}说：</p>
-        <div className="comment-content" style={{display: this.props.cmt.replyComment ?'block':'none'}}>
-          <blockquote>
+        <div className="comment-content" style={{display: this.props.cmt.replyComment && this.props.cmt.replyComment.id ?'block':'none'}}>
+          <div className="bd-callout bd-callout-primary">
             <pre>引用{replyComment.username}的发言：</pre>
             {replyComment.content}
-          </blockquote>
+          </div>
         </div>
         <div className="comment-content"
           dangerouslySetInnerHTML={{__html: this.props.cmt.content}}
