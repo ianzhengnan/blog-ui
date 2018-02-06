@@ -9,6 +9,7 @@ class Comments extends React.Component {
     super(props)
     this.state = { cmts: [] }
     this.onCommentUpdate = this.onCommentUpdate.bind(this)
+    this.onQuotePressed = this.onQuotePressed.bind(this)
   }
 
   componentDidMount(){
@@ -17,6 +18,12 @@ class Comments extends React.Component {
 
   onCommentUpdate(){
     this.fetchData()
+  }
+
+  onQuotePressed(cmt){
+    console.log('this.textInput is ' + this.textInput);
+    
+    this.textInput.focus(cmt)
   }
 
   fetchData(){
@@ -35,9 +42,11 @@ class Comments extends React.Component {
         <h2>留言（{cmts.length}条）</h2>
         <hr />
         {cmts.map((cmt) => (
-          <Comment key={cmt.id} cmt={cmt} />
+          <Comment key={cmt.id} cmt={cmt} onQuotePressed={this.onQuotePressed} />
         ))}
-        <InputComment onCommentUpdate={this.onCommentUpdate}/>
+        <InputComment onCommentUpdate={this.onCommentUpdate} ref={(input) => {
+          this.textInput = input
+        }}/>
       </div>
     )
   }

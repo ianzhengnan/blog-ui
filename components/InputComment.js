@@ -9,12 +9,15 @@ class InputComment extends React.Component {
     this.state = {
       content: "",
       username: "",
-      email: ""
+      email: "",
+      placeholder: "Enter content",
+      replyComment: {}
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.onCommentUpdate = this.onCommentUpdate.bind(this)
     this.handleReply = this.handleReply.bind(this)
+    this.focus = this.focus.bind(this)
   }
 
   handleSubmit(e){
@@ -30,7 +33,8 @@ class InputComment extends React.Component {
         blogId: `${Router.query.id}`,
         username: this.state.username,
         email: this.state.email,
-        content: this.state.content
+        content: this.state.content,
+        replyComment: this.state.replyComment
         })
       }).then( r => {
         return r.json()
@@ -39,7 +43,9 @@ class InputComment extends React.Component {
         this.setState({
           content: "",
           email: "",
-          username: ""
+          username: "",
+          placeholder: "",
+          replyComment: {}
         })
       })
   }
@@ -63,6 +69,12 @@ class InputComment extends React.Component {
     }
   }
 
+  focus(cmt) {
+    this.textInput.focus()
+    this.setState({placeholder: '回复：' + cmt.username})
+    this.setState({replyComment: cmt})
+  }
+
   handleReply(){
 
   }
@@ -77,8 +89,8 @@ class InputComment extends React.Component {
             <label htmlFor="exampleFormControlTextarea1">您的留言：</label>
             <textarea name="content" className="form-control"
               id="exampleFormControlTextarea1" rows="5"
-              placeholder="Enter content" value={this.state.content}
-              onChange={this.handleChange} onFocus={this.handleReply}></textarea>
+              placeholder={this.state.placeholder} value={this.state.content}
+              onChange={this.handleChange} onFocus={this.handleReply} ref={(input) => {this.textInput = input}}></textarea>
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">您的姓名：</label>
