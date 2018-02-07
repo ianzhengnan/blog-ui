@@ -27,7 +27,7 @@ export default class extends React.Component {
 
     render(){
       const blogs = this.props.blogs
-      let blog = { year: blogs[0].year, bs: [] }
+      let blog = { year: blogs[0]? blogs[0].year:0, bs: [] }
 
       let result = []
       let i = 0

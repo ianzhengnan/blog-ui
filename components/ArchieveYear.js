@@ -1,5 +1,7 @@
 import Link from 'next/link'
+import Format from '../utils/format'
 
+const fmt = new Format()
 
 const ArchieveYear = (props) => (
   <div className="archieve-year">
@@ -17,7 +19,7 @@ const ArchieveYear = (props) => (
                 as={`/p/${blog.year}/${blog.month}/${blog.id}.html`}>
                 <a href={`/detail?id=${blog.id}`}>{blog.title}</a>
               </Link>
-              <span className="cmt-count">（12@2017.12.05）</span>
+              <span className="cmt-count">（12@{fmt.formatDate(blog.createAt)}）</span>
             </li>
 
             )

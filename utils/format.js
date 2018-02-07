@@ -2,7 +2,7 @@
 const Format = function () {
   return {
 
-    formatTime: function(timespan){
+    formatTime(timespan){
       let dateTime = new Date(timespan)
       let timestampe = dateTime.getTime()
 
@@ -13,14 +13,12 @@ const Format = function () {
       let minute = dateTime.getMinutes()
       let second = dateTime.getSeconds()
       let now = new Date()
-      let now_new = Date.parse(now.toDateString())
+      let now_new = now.getTime()
 
       let millisecodes = 0
       let timeSpanStr = ''
 
       millisecodes = now_new - timestampe
-
-      console.log('millisecodes is ' + millisecodes);
 
       if (millisecodes <= 1000 * 60 * 1) {
         timeSpanStr = '刚刚'
@@ -37,6 +35,11 @@ const Format = function () {
       }
 
       return timeSpanStr
+    },
+
+    formatDate(timespan){
+      let dateTime = new Date(timespan)
+      return dateTime.getUTCFullYear() + '年' + dateTime.getMonth() + '月' + dateTime.getDate() + '日'
     }
 
   }
