@@ -1,4 +1,7 @@
 import Link from 'next/link'
+import Format from '../utils/format'
+
+const fmt = new Format()
 
 const PostBlog = (props) => (
   <div className="blog-post">
@@ -8,7 +11,7 @@ const PostBlog = (props) => (
         <a>{props.blog.title}</a>
       </Link>
     </h2>
-    <p className="blog-post-meta">{(new Date(props.blog.createAt)).toLocaleString()}</p>
+    <p className="blog-post-meta">{fmt.formatTime(props.blog.createAt)}</p>
     <p>{props.blog.summary}</p>
   </div>
 )
